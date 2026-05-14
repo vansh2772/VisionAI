@@ -56,6 +56,12 @@ h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; }
 .video-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
 .video-header h2 { font-weight: 600; color: #e2e8f0; }
 
+.header-controls { display: flex; align-items: center; gap: 1rem; }
+.btn-danger { background-color: rgba(239, 68, 68, 0.1); color: var(--error); padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--error); cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+.btn-danger:hover { background-color: var(--error); color: white; }
+.btn-primary { background-color: rgba(16, 185, 129, 0.1); color: var(--accent); padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--accent); cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+.btn-primary:hover { background-color: var(--accent); color: var(--bg-dark); }
+
 .live-badge { background-color: rgba(239, 68, 68, 0.1); color: var(--error); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; border: 1px solid var(--error); display: flex; align-items: center; gap: 6px; }
 .live-badge::before { content: ''; display: block; width: 6px; height: 6px; background-color: var(--error); border-radius: 50%; }
 

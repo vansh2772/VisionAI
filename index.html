@@ -52,7 +52,10 @@
         <main class="video-section">
             <div class="video-header">
                 <h2>Live Surveillance Feed</h2>
-                <div class="live-badge">LIVE</div>
+                <div class="header-controls">
+                    <button id="toggle-cam-btn" class="btn-danger">Stop Camera</button>
+                    <div class="live-badge" id="live-badge">LIVE</div>
+                </div>
             </div>
             <div class="video-wrapper">
                 <video id="webcam" autoplay playsinline muted></video>

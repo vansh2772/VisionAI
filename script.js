@@ -6,6 +6,10 @@ const objectCount = document.getElementById('object-count');
 const logsContainer = document.getElementById('logs-container');
 
 let model = undefined;
+let isCamRunning = false;
+let animationId = null;
+const toggleCamBtn = document.getElementById('toggle-cam-btn');
+const liveBadge = document.getElementById('live-badge');
 
 function addLog(message) {
     const li = document.createElement('li');
@@ -47,6 +51,7 @@ function startWebcam() {
             video.addEventListener('loadedmetadata', () => {
                 cameraStatus.innerText = 'Active';
                 cameraStatus.className = 'stat-value status-active';
+                isCamRunning = true;
                 addLog('[CAMERA] Feed active. Starting inference...');
                 
                 // Match canvas internal dimensions to video resolution
@@ -95,6 +100,40 @@ function predictWebcam() {
         });
 
         // Loop the prediction continuously for the next frame
-        requestAnimationFrame(predictWebcam);
+        animationId = requestAnimationFrame(predictWebcam);
+    });
+}
+
+// Toggle Camera Functionality
+if (toggleCamBtn) {
+    toggleCamBtn.addEventListener('click', () => {
+        if (isCamRunning) {
+            // Stop Camera
+            const stream = video.srcObject;
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+            }
+            video.srcObject = null;
+            if (animationId) cancelAnimationFrame(animationId);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            isCamRunning = false;
+            toggleCamBtn.innerText = 'Start Camera';
+            toggleCamBtn.className = 'btn-primary';
+            liveBadge.style.display = 'none';
+            
+            cameraStatus.innerText = 'Stopped';
+            cameraStatus.className = 'stat-value status-error';
+            objectCount.innerText = '0';
+            addLog('[CAMERA] Feed stopped by user.');
+        } else {
+            // Start Camera
+            toggleCamBtn.innerText = 'Stop Camera';
+            toggleCamBtn.className = 'btn-danger';
+            liveBadge.style.display = 'flex';
+            
+            startWebcam();
+        }
     });
 }
