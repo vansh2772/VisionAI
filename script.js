@@ -84,12 +84,12 @@ function predictWebcam() {
             const text = `${prediction.class} (${Math.round(prediction.score * 100)}%)`;
 
             // Style bounding box
-            ctx.strokeStyle = '#10b981'; // Emerald green
+            ctx.strokeStyle = '#ffffff'; // White
             ctx.lineWidth = 4;
             ctx.strokeRect(x, y, width, height);
 
             // Style text background
-            ctx.fillStyle = '#10b981';
+            ctx.fillStyle = '#ffffff';
             const textWidth = ctx.measureText(text).width;
             ctx.fillRect(x, y - 25, textWidth + 10, 25);
 

@@ -20,6 +20,12 @@ This project was built to demonstrate proficiency in integrating state-of-the-ar
 - **Frontend:** HTML5, CSS3 (Vanilla Custom Framework), Modern ES6+ JavaScript
 - **Deployment:** Netlify Ready
 
+## 🧠 The Role of AI in this Project
+This project leverages Artificial Intelligence, specifically **Computer Vision**, to interpret real-world video streams directly in the browser. 
+- **Model**: We use **COCO-SSD (Common Objects in Context - Single Shot MultiBox Detector)**, a lightweight but powerful pre-trained AI model provided by TensorFlow.js.
+- **How it works**: The AI model analyzes each frame of the live video feed. It identifies patterns, edges, and shapes to classify objects into 80 predefined categories. It then computes bounding boxes (the exact coordinates of the object) and a confidence score for each detection.
+- **Why Edge AI**: By running the AI inference entirely on the client-side (Edge AI), we eliminate the need for expensive backend servers, drastically reduce latency, and ensure absolute user privacy since the video data never leaves the local device.
+
 ## 🚀 How to Run Locally
 
 Because this project uses a completely serverless architecture, running it locally is incredibly simple.
