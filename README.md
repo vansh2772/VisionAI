@@ -6,6 +6,9 @@
 
 A production-ready, fully serverless real-time computer vision web application. VisionAI processes live webcam feeds directly in the browser and uses AI to detect, track, and count multiple objects dynamically.
 
+Link: https://visionaismart.netlify.app/
+
+
 This project was built to demonstrate proficiency in integrating state-of-the-art machine learning models with modern, responsive web interfaces—without relying on heavy backend processing.
 
 ## ✨ Features
